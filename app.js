@@ -14,6 +14,7 @@ const defeatedGoblinsEl = document.querySelector('.defeated-goblins');
 
 
 
+
 let heroHP = 10;
 let defeatedGoblins = 0;
 
@@ -40,17 +41,14 @@ heroDropdown.addEventListener('change', () => {
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     const data = new FormData(form);
-    const goblinName = data.get('goblin-name-input');
-
-    if (goblinName.data === '') {
-        goblinName.textContent = `Goblin #${Math.floor(Math.random() * 1000)}`;
-    }
+    let goblinName = data.get('goblin-name-input');
 
     const newGoblin = {
-        name: goblinName,
+        name: (goblinName === '') ? `Goblin #${Math.floor(Math.random() * 1000)}` : goblinName,
         hp: `${Math.ceil(Math.random() * 10)}`,
         img_url: `./assets/goblin-${getRandomNumber()}.png`
     };
+
     goblinArr.push(newGoblin);
     goblinListEl.textContent = '';
     displayGoblins();
@@ -89,7 +87,7 @@ function displayGoblins() {
                     heroHP++;
                 }
                   
-              // when hero is defeated, alert game over and display hero differently
+              // when hero is defeated, alert game over
                 if (heroHP === 0) {
                     alert('Goblins overtook the castle! GAME OVER!');
                 }  
@@ -101,10 +99,12 @@ function displayGoblins() {
             });
         } 
 
+        // when goblin is defeated, displays goblin differently
         if (goblin.hp <= 0) {
             goblinEl.classList.add('deadGoblin');
         }
 
+        // when hero is defeated, display hero differently  
         if (heroHP <= 0) {
             heroImg.classList.add('game-over');
             goblinEl.classList.add('deadGoblin');
@@ -115,9 +115,8 @@ function displayGoblins() {
 }
 
 function getRandomNumber() {
-    const index = Math.floor(Math.random() * 2);
+    const index = Math.floor(Math.random() * 4);
     return index;
 }
-
 
 displayGoblins();

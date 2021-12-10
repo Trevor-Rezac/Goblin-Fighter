@@ -44,13 +44,13 @@ main {
     border: solid 2px var(--color1);
 } */
 
-/* header {
+header {
     display: flex;
     justify-content: flex-end;
     background-color: var(--color3);
     height: var(--header-height);
     box-shadow: var(--shadow);
-} */
+}
 
 /* footer {
     position: fixed;
@@ -100,7 +100,7 @@ main {
 .right-container {
     display: flex;
     flex-direction: column;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     width: 50%;
     height: 100%;
     text-align: center;
@@ -115,9 +115,9 @@ main {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    height: 300px;
+    height: 100%;
     overflow: hidden;
 }
 
@@ -154,4 +154,8 @@ main {
 
 button {
     cursor: pointer;
+}
+
+input {
+    text-align: center;
 }

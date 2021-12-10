@@ -13,7 +13,7 @@ export const goblinArr = [
 
 
 function getRandomNumber() {
-    const index = Math.floor(Math.random() * 2);
+    const index = Math.floor(Math.random() * 4);
     return index;
 }
 
