@@ -18,8 +18,4 @@ export function renderGoblin(goblin) {
     return goblinDiv;
 }
 
-function getRandomNumber() {
-    const index = Math.floor(Math.random() * 2);
-    return index;
-}
 
