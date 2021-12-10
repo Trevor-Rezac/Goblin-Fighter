@@ -93,7 +93,8 @@ function displayGoblins() {
                 }  
 
                 heroHPEl.textContent = heroHP;
-                defeatedGoblinsEl.textContent = `${defeatedGoblins}`;
+                defeatedGoblinsEl.textContent = `You have defeated ${defeatedGoblins} ${(defeatedGoblins === 1) ? 'goblin!' : 'goblins!'}`;
+                
 
                 displayGoblins();
             });
