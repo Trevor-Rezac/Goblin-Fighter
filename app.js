@@ -90,6 +90,7 @@ function displayGoblins() {
               // when hero is defeated, alert game over
                 if (heroHP === 0) {
                     alert('Goblins overtook the castle! GAME OVER!');
+
                 }  
 
                 heroHPEl.textContent = heroHP;
@@ -109,6 +110,8 @@ function displayGoblins() {
         if (heroHP <= 0) {
             heroImg.classList.add('game-over');
             goblinEl.classList.add('deadGoblin');
+            document.body.style.backgroundImage = "url('./assets/castle-burning.png')";
+            goblinListEl.style.display = 'none';
         }
 
         goblinListEl.append(goblinEl);
