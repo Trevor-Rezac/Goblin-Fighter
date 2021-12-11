@@ -72,7 +72,7 @@ function displayGoblins() {
                     alert(`${goblin.name} dodged your attack!`);
                 }
                 
-              // 33% chance of goblin hits hero, else alert miss
+              // 50% chance of goblin hits hero, else alert miss
                 if (Math.random() < .5) {
                     heroHP--;
                     alert(`${goblin.name}'s counter attack hit you!`);
@@ -84,7 +84,7 @@ function displayGoblins() {
                 if (goblin.hp === 0) {
                     defeatedGoblins++;
                     alert(`You defeated ${goblin.name} and have become stronger!`);
-                    heroHP++;
+                    heroHP = heroHP + 2;
                 }
                   
               // when hero is defeated, alert game over
