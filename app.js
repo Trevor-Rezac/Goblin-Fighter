@@ -12,12 +12,8 @@ const heroImg = document.querySelector('#hero-img');
 const goblinListEl = document.getElementById('goblin-list-container');
 const defeatedGoblinsEl = document.querySelector('.defeated-goblins');
 
-
-
-
 let heroHP = 10;
 let defeatedGoblins = 0;
-
 
 heroNameBtn.addEventListener('click', () => {
     const heroName = heroInputEl.value;
@@ -64,16 +60,16 @@ function displayGoblins() {
         if (goblin.hp > 0) {
             goblinEl.addEventListener('click', () => {
 
-              // 50% chance to hit a goblin, else alert miss
-                if (Math.random() < .5) {
+              // 60% chance to hit a goblin, else alert miss
+                if (Math.random() < .60) {
                     goblin.hp--;
                     alert(`You hit ${goblin.name}!`);
                 } else {
                     alert(`${goblin.name} dodged your attack!`);
                 }
                 
-              // 50% chance of goblin hits hero, else alert miss
-                if (Math.random() < .5) {
+              // 40% chance of goblin hits hero, else alert miss
+                if (Math.random() < .40) {
                     heroHP--;
                     alert(`${goblin.name}'s counter attack hit you!`);
                 } else {
@@ -104,14 +100,17 @@ function displayGoblins() {
         // when goblin is defeated, displays goblin differently
         if (goblin.hp <= 0) {
             goblinEl.classList.add('deadGoblin');
+            goblinEl.style.display = 'none';
         }
 
         // when hero is defeated, display hero differently  
         if (heroHP <= 0) {
-            heroImg.classList.add('game-over');
+            heroImg.style.display = 'none';
             goblinEl.classList.add('deadGoblin');
             document.body.style.backgroundImage = "url('./assets/castle-burning.png')";
             goblinListEl.style.display = 'none';
+            heroNameEl.style.display = 'none';
+            heroHPEl.style.display = 'none';
         }
 
         goblinListEl.append(goblinEl);
